@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
-    "start": "npm run build && node server.js"
+    "start": "node server.js",
+    "serve": "npm run build && npm start",
+    "deploy": "now"
   },
   "author": "hrfmmymt",
   "license": "MIT",
@@ -14,6 +16,7 @@
     "extract-loader": "^2.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
+    "now": "^11.2.4",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3"
   },
