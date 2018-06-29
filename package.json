@@ -1,16 +1,15 @@
 {
   "name": "webper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
-    "serve": "node server.js"
+    "start": "npm run build && node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "hrfmmymt",
+  "license": "MIT",
   "devDependencies": {
     "extract-loader": "^2.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
