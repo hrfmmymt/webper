@@ -10,7 +10,10 @@
     <main>
       <h1>{{ title }}</h1>
       <div id="dropArea" class="input">
-        <input id="imageInput" class="input-file" type="file" accept=".jpg,.png,image/jpeg,image/png">
+        <label for="imageInput">
+          Drag & drop or Click to select a image file!
+          <input id="imageInput" class="input-file" type="file" accept=".jpg,.png,image/jpeg,image/png">
+        </label>
       </div>
       <section class="output hide" id="outputArea">
         <h2>output</h2>

@@ -20,14 +20,9 @@
   cursor: pointer;
 
   & input {
+    display: none;
     font-size: 2rem;
     cursor: pointer;
-
-    &::before {
-      content: 'Drag & drop or Click to select a image file!';
-      display: block;
-      text-align: center;
-    }
 
     &::-webkit-file-upload-button {
       display: none;
