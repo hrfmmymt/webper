@@ -101,5 +101,4 @@ document.addEventListener('DOMContentLoaded', () => {
     xhr.send(blob)
     outputArea.classList.remove('hide')
   }
-
 })
