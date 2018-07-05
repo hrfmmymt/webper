@@ -11,8 +11,8 @@
 
     html,
     body {
-      padding: 0px;
-      margin: 0px;
+      padding: 0;
+      margin: 0;
       width: 100%;
       height: 100%;
     }
@@ -22,19 +22,16 @@
     }
 
     body {
+      background-color: #fafbfc;
       font-family: -apple-system, BlinkMacSystemFont, Roboto, Arial, Helvetica, sans-serif;
     }
 
-    .output {
-      width: 100%;
+    main {
+      padding: 2%;
     }
 
-    .output img {
-      max-width: 1000px;
-    }
-
-    .hide {
-      display: none;
+    h1 {
+      margin-top: 0;
     }
 
     .input {
@@ -42,8 +39,9 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      height: 300px;
-      border: 5px dashed #ccc;
+      height: 30vh;
+      background-color: #fff;
+      border: 3px dashed #ccc;
       cursor: pointer;
     }
 
@@ -56,6 +54,31 @@
     .input input::-webkit-file-upload-button {
       display: none;
     }
+
+    .output {
+      width: 100%;
+      background-color: #fff;
+      padding: 1%;
+      margin-top: 5%;
+      border: 1px solid #ccc;
+    }
+
+    dl,
+    dd {
+      margin: 0;
+    }
+
+    dt {
+      margin-bottom: .5em;
+    }
+
+    .before {
+      margin-bottom: 1rem;
+    }
+
+    .hide {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -63,28 +86,30 @@
     <h1>{{ title }}</h1>
     <div id="dropArea" class="input">
       <label for="imageInput">
-          Drag & drop or Click to select a image file!
+          put image file here.
           <input id="imageInput" class="input-file" type="file" accept=".jpg,.png,image/jpeg,image/png">
         </label>
     </div>
     <section class="output hide" id="outputArea">
       <h2>output</h2>
-      <dl class="before">
-        <dt>before</dt>
-        <dd>
-          <a id="downloadBefore">
-              <img id="imageBefore">
-            </a>
-        </dd>
-      </dl>
-      <dl class="after">
-        <dt>after</dt>
-        <dd>
-          <a id="downloadAfter">
-              <img id="imageAfter">
-            </a>
-        </dd>
-      </dl>
+      <div class="output-wrapper">
+        <dl class="before">
+          <dt>before</dt>
+          <dd>
+            <a id="downloadBefore">
+                <img id="imageBefore" width="100%">
+              </a>
+          </dd>
+        </dl>
+        <dl class="after">
+          <dt>after</dt>
+          <dd>
+            <a id="downloadAfter">
+                <img id="imageAfter" width="100%">
+              </a>
+          </dd>
+        </dl>
+      </div>
     </section>
   </main>
   <script src="/js/bundle.js"></script>
