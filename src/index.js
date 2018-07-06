@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageAfter = document.getElementById('imageAfter')
   const downloadBefore = document.getElementById('downloadBefore')
   const downloadAfter = document.getElementById('downloadAfter')
-
+  const titleBefore = document.getElementById('titleBefore')
+  const titleAfter = document.getElementById('titleAfter')
   const input = document.getElementById('imageInput')
   const drop = document.getElementById('dropArea')
-
   const outputArea = document.getElementById('outputArea')
+  const loader = document.getElementById('loader')
 
   drop.addEventListener('click', onClick)
   drop.addEventListener('dragenter', onDragEnter)
@@ -90,15 +91,35 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   function sendBlob(blob, callback) {
+    loader.classList.remove('hide')
     const xhr = new XMLHttpRequest()
     xhr.open('POST', '/api/cwebp', true)
     xhr.responseType = 'blob'
     xhr.onload = e => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         callback(xhr)
+        const responseSize = xhr.response.size
+        const sizeAfter =
+          responseSize > 1000000
+            ? `${Math.floor((responseSize / 1000000) * Math.pow(10, 1)) /
+                Math.pow(10, 1)}MB`
+            : responseSize > 1000
+              ? `${Math.round(responseSize / 1000)}KB`
+              : `${responseSize}B`
+        titleAfter.innerHTML = `after <small>(${sizeAfter})</small>`
+        loader.classList.add('hide')
       }
     }
     xhr.send(blob)
     outputArea.classList.remove('hide')
+    const sizeBefore =
+      blob.size > 1000000
+        ? `${Math.floor((blob.size / 1000000) * Math.pow(10, 1)) /
+            Math.pow(10, 1)}MB`
+        : blob.size > 1000
+          ? `${Math.round(blob.size / 1000)}KB`
+          : `${blob.size}B`
+    titleBefore.innerHTML = `before <small>(${sizeBefore})</small>`
   }
 })
+// Math.floor((blob.size / 1000000) * Math.pow(10, 1)) / Math.pow(10, 1)
