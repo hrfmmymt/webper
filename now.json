@@ -1,7 +1,7 @@
 {
   "name": "webper",
-  "aliases": [
-    "webper.now.sh"
+  "alias": [
+    "webper"
   ],
   "env": {
     "NODE_ENV": "production"
