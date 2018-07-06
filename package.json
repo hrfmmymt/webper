@@ -9,7 +9,7 @@
     "serve": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack --watch",
     "watch:server": "nodemon \"./server.js\" --watch \"./\"",
-    "deploy": "now --public"
+    "deploy": "now alias"
   },
   "author": "hrfmmymt",
   "license": "MIT",
