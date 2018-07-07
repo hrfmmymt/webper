@@ -63,6 +63,14 @@
       border: 1px solid #ccc;
     }
 
+    .before-after {
+      display: flex;
+    }
+
+    .before-after.vertical {
+      display: block;
+    }
+
     dl,
     dd {
       margin: 0;
@@ -73,7 +81,11 @@
     }
 
     .before {
-      margin-bottom: 1rem;
+      margin: 0 1rem 1rem 0;
+    }
+
+    .before-after.vertical .before {
+      margin-right: 0;
     }
 
     .hide {
@@ -92,7 +104,8 @@
     </div>
     <section class="output hide" id="outputArea">
       <h2>output</h2>
-      <div class="output-wrapper">
+      <button type="button" id="btnAppearance">vertical</button>
+      <div class="before-after" id="beforeAfter">
         <dl class="before">
           <dt id="titleBefore">before</dt>
           <dd>

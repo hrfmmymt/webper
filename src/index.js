@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const drop = document.getElementById('dropArea')
   const outputArea = document.getElementById('outputArea')
   const loader = document.getElementById('loader')
+  const btnAppearance = document.getElementById('btnAppearance')
 
   drop.addEventListener('click', onClick)
   drop.addEventListener('dragenter', onDragEnter)
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   drop.addEventListener('dragleave', onDragLeave)
   drop.addEventListener('dragend', onDragEnd)
   drop.addEventListener('drop', onDrop)
+  btnAppearance.addEventListener('click', toggleAppearance)
 
   let blobBefore = null
   let blobAfter = null
@@ -121,5 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
           : `${blob.size}B`
     titleBefore.innerHTML = `before <small>(${sizeBefore})</small>`
   }
+
+  function toggleAppearance(e) {
+    const beforeAfter = document.getElementById('beforeAfter')
+    beforeAfter.classList.toggle('vertical')
+    e.target.innerHTML === 'vertical'
+      ? (e.target.innerHTML = 'horizontal')
+      : (e.target.innerHTML = 'vertical')
+  }
 })
-// Math.floor((blob.size / 1000000) * Math.pow(10, 1)) / Math.pow(10, 1)
