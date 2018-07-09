@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const drop = document.getElementById('dropArea')
   const outputArea = document.getElementById('outputArea')
   const loader = document.getElementById('loader')
-  const btnAppearance = document.getElementById('btnAppearance')
+  const appearanceSwitches = document.getElementsByName('appearanceSwitch')
 
   drop.addEventListener('click', onClick)
   drop.addEventListener('dragenter', onDragEnter)
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   drop.addEventListener('dragleave', onDragLeave)
   drop.addEventListener('dragend', onDragEnd)
   drop.addEventListener('drop', onDrop)
-  btnAppearance.addEventListener('click', toggleAppearance)
+  appearanceSwitches.forEach(e => e.addEventListener('change', toggleAppearance))
 
   let blobBefore = null
   let blobAfter = null
@@ -124,11 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     titleBefore.innerHTML = `before <small>(${sizeBefore})</small>`
   }
 
-  function toggleAppearance(e) {
+  function toggleAppearance() {
     const beforeAfter = document.getElementById('beforeAfter')
-    beforeAfter.classList.toggle('vertical')
-    e.target.innerHTML === 'vertical'
-      ? (e.target.innerHTML = 'horizontal')
-      : (e.target.innerHTML = 'vertical')
+    document.getElementById('vertical').checked
+      ? beforeAfter.classList.add('vertical')
+      : beforeAfter.classList.remove('vertical')
   }
 })
