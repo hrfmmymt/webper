@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const outputArea = document.getElementById('outputArea')
   const loader = document.getElementById('loader')
   const appearanceSwitches = document.getElementsByName('appearanceSwitch')
+  const labels = document.querySelectorAll('.switch-label')
 
   drop.addEventListener('click', onClick)
   drop.addEventListener('dragenter', onDragEnter)
@@ -18,7 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
   drop.addEventListener('dragleave', onDragLeave)
   drop.addEventListener('dragend', onDragEnd)
   drop.addEventListener('drop', onDrop)
-  appearanceSwitches.forEach(e => e.addEventListener('change', toggleAppearance))
+  appearanceSwitches.forEach(e =>
+    e.addEventListener('change', toggleAppearance)
+  )
+  labels.forEach(e => {
+    e.addEventListener('keypress', k => {
+      const key = k.which || k.keyCode
+      if (key === 13) {
+        e.previousElementSibling.checked = true
+        toggleAppearance()
+      }
+    })
+  })
 
   let blobBefore = null
   let blobAfter = null
