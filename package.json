@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production --module-bind 'js=babel-loader'",
     "start": "node server.js",
     "serve": "npm-run-all --parallel watch:server watch:build",
     "watch:build": "webpack --watch",
@@ -14,6 +14,9 @@
   "author": "hrfmmymt",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "extract-loader": "^2.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "nodemon": "^1.17.5",
