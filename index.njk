@@ -101,11 +101,11 @@
       margin: 1rem auto;
       background-color: #e9e9e9;
       border-radius: 3px;
-      padding: 1% 0;
     }
 
     .switch-label {
       z-index: 2;
+      padding: 5% 0;
       width: 50%;
       font-size: 1rem;
       color: #a9a9a9;
@@ -126,6 +126,7 @@
       color: #fff;
       transition: 0.15s ease-out;
       transition-property: color;
+      cursor: default;
     }
 
     .switch-input:checked+.switch-label-right~.switch-selection {
@@ -157,9 +158,9 @@
       <h2>output</h2>
       <div class="switch">
         <input type="radio" class="switch-input" name="appearanceSwitch" id="horizontal" checked>
-        <label for="horizontal" class="switch-label switch-label-left">horizontal</label>
+        <label for="horizontal" class="switch-label switch-label-left" tabindex="0">horizontal</label>
         <input type="radio" class="switch-input" name="appearanceSwitch" id="vertical">
-        <label for="vertical" class="switch-label switch-label-right">vertical</label>
+        <label for="vertical" class="switch-label switch-label-right" tabindex="0">vertical</label>
         <div class="switch-selection"></div>
       </div>
 
